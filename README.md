@@ -8,7 +8,12 @@
 ### Postgres Configurations (Local Setup)
 
 `server` = `localhost`
+
 `port` = `5432`
+
 `username` = `postgres`
+
 `database` = `localhost`
+
 `password` = `admin`
+
