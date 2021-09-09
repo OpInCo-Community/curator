@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('curations', '0001_initial'),
+        ("curations", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='curationmodel',
-            name='upvotes',
+            model_name="curationmodel",
+            name="upvotes",
             field=models.IntegerField(default=0),
         ),
     ]

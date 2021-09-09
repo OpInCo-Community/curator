@@ -1,5 +1,6 @@
 from django.contrib import admin
 from curations import models as CurationsModels
+
 # Register your models here.
 
 admin.site.register(CurationsModels.Curation)

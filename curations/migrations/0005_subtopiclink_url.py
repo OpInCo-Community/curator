@@ -6,14 +6,14 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('curations', '0004_auto_20210909_1714'),
+        ("curations", "0004_auto_20210909_1714"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='subtopiclink',
-            name='url',
-            field=models.URLField(default=''),
+            model_name="subtopiclink",
+            name="url",
+            field=models.URLField(default=""),
             preserve_default=False,
         ),
     ]

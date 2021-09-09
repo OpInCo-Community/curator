@@ -22,6 +22,7 @@ class Subject(models.Model):
     def __str__(self):
         return self.title
 
+
 class Topic(models.Model):
     title = models.CharField(max_length=64)
     curation = models.ForeignKey(Curation, on_delete=models.CASCADE)
@@ -40,11 +41,12 @@ class Link(models.Model):
 
 class SubTopic(models.Model):
     title = models.CharField(max_length=64)
-    description = models.TextField()   
+    description = models.TextField()
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.title} - {self.topic.title}"
+
 
 class SubTopicLink(models.Model):
     url = models.URLField()

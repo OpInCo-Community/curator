@@ -8,32 +8,32 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('curations', '0003_auto_20210909_1711'),
+        ("curations", "0003_auto_20210909_1711"),
     ]
 
     operations = [
         migrations.RenameModel(
-            old_name='CurationModel',
-            new_name='Curation',
+            old_name="CurationModel",
+            new_name="Curation",
         ),
         migrations.RenameModel(
-            old_name='LinkModel',
-            new_name='Link',
+            old_name="LinkModel",
+            new_name="Link",
         ),
         migrations.RenameModel(
-            old_name='SubjectModel',
-            new_name='Subject',
+            old_name="SubjectModel",
+            new_name="Subject",
         ),
         migrations.RenameModel(
-            old_name='SubTopicModel',
-            new_name='SubTopic',
+            old_name="SubTopicModel",
+            new_name="SubTopic",
         ),
         migrations.RenameModel(
-            old_name='SubTopicLinkModel',
-            new_name='SubTopicLink',
+            old_name="SubTopicLinkModel",
+            new_name="SubTopicLink",
         ),
         migrations.RenameModel(
-            old_name='TopicModel',
-            new_name='Topic',
+            old_name="TopicModel",
+            new_name="Topic",
         ),
     ]

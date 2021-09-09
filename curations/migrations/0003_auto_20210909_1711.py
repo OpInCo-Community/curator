@@ -7,54 +7,122 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('curations', '0002_alter_curationmodel_upvotes'),
+        ("curations", "0002_alter_curationmodel_upvotes"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='SubjectModel',
+            name="SubjectModel",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=64)),
-                ('description', models.TextField()),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=64)),
+                ("description", models.TextField()),
             ],
         ),
         migrations.CreateModel(
-            name='TopicModel',
+            name="TopicModel",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=64)),
-                ('curation', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='curations.curationmodel')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=64)),
+                (
+                    "curation",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="curations.curationmodel",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='SubTopicModel',
+            name="SubTopicModel",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=64)),
-                ('description', models.TextField()),
-                ('topic', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='curations.topicmodel')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=64)),
+                ("description", models.TextField()),
+                (
+                    "topic",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="curations.topicmodel",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='SubTopicLinkModel',
+            name="SubTopicLinkModel",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('subtopic', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='curations.subtopicmodel')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "subtopic",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="curations.subtopicmodel",
+                    ),
+                ),
             ],
         ),
         migrations.CreateModel(
-            name='LinkModel',
+            name="LinkModel",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('url', models.URLField()),
-                ('topic', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='curations.topicmodel')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("url", models.URLField()),
+                (
+                    "topic",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="curations.topicmodel",
+                    ),
+                ),
             ],
         ),
         migrations.AddField(
-            model_name='curationmodel',
-            name='subject',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='curations.subjectmodel'),
+            model_name="curationmodel",
+            name="subject",
+            field=models.ForeignKey(
+                default=1,
+                on_delete=django.db.models.deletion.CASCADE,
+                to="curations.subjectmodel",
+            ),
             preserve_default=False,
         ),
     ]
