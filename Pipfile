@@ -4,15 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-psycopg2 = "*"
-django = "*"
-pre-commit = "*"
 
 [dev-packages]
-black = "*"
 
 [requires]
 python_version = "3.9"
-
-[pipenv]
-allow_prereleases = true
