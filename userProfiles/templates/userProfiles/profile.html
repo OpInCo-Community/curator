@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Curator Home{% endblock %}
+
+
+{% block content %}
+
+
+<div class="row">
+    <div class="col-12 col-md-2">
+        <img src="{{user.profile_pic.url}}" class="img-thumbnail rounded" alt="...">
+    </div>
+    <div class="col-12 col-md-8">
+        <div class="card">
+            <div class="card-body">
+              <p class="fw-bold">Email: <span>{{user.email}}</span></p> 
+              <p class="fw-bold">Bio: <span>{{user.bio|default:"Boring.."}}</span></p> 
+            </div>
+          </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
