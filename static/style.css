@@ -30,3 +30,15 @@ body {
 .bottom-nav-item{ 
 	color: white;
 }
+
+.curation-container{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.curation-container h3{
+	font-weight: 600;
+}
+.left-section,.right-section{
+	margin:20px;
+}
