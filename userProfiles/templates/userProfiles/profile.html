@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load crispy_forms_tags %}
 
 {% block title %}Curator Home{% endblock %}
 
@@ -6,22 +7,48 @@
 {% block content %}
 
 
-<div class="row">
-    <div class="col-12 col-md-2">
-        {% if user.profile_pic %}
-         <img src="{{user.profile_pic.url}}" class="img-thumbnail rounded" alt="...">
-         {% endif %}
+<div class="container">
+  <h2 class="text-center mb-5">Profile</h2>
+  <div class="row mb-5 mb-md-0">
+    <div class="col col-12 col-md-4">
+      {% comment %} <div class="card"> {% endcomment %}
+        <div class="d-flex flex-column align-items-center justify-content-center mb-3">
+          {% if user.profile_pic %}
+          <img src="{{user.profile_pic.url}}" class="rounded-circle mb-2" style="width:150px; height:150px;">
+          <p class="font-weight-bold">{{user.first_name}} {{user.last_name}}</p>
+          {% endif %}
+        </div>
+        {% comment %} </div> {% endcomment %}
     </div>
-    <div class="col-12 col-md-8">
-        <div class="card">
-            <div class="card-body">
-              <p class="fw-bold">Email: <span>{{user.email}}</span></p> 
-              <p class="fw-bold">Bio: <span>{{user.bio|default:"Boring.."}}</span></p> 
-            </div>
-          </div>
-    </div>
-</div>
+    <div class="col col-12 col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <h5>Personal Info</h5>
+          <hr>
+          {% comment %} <p><span class="font-weight-bold">Name: </span> {{user.first_name}} {{user.last_name}}</p>
+          <p><span class="font-weight-bold">Email: </span>{{user.email}}</p>
+          <p><span class="font-weight-bold">Bio: </span>{{user.bio|default:"Boring.."}}</p> {% endcomment %}
+          <form method="post">
+            <p><span class="font-weight-bold">Email: </span>{{user.email}}</p>
+            {% csrf_token %}
+            {{user_form|crispy}}
+            <input type="submit" class="btn btn-primary" value="Update Profile">
+          </form>
+        </div>
+      </div>
 
+      <div class="card mt-5">
+        <div class="card-body">
+          <h5>Curator Info</h5>
+          <hr>
+          <p><span class="font-weight-bold">Number of Curations: </span> {{curations_count|default:0}}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
 
 
 {% endblock %}

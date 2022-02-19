@@ -7,7 +7,7 @@ class Curation(models.Model):
     title = models.CharField(max_length=64)
     description = models.TextField()
     upvotes = models.IntegerField(default=0)
-    owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, related_name="curations")
     subject = models.ForeignKey("Subject", on_delete=models.CASCADE)
 
     def __str__(self):
