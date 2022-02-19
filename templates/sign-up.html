@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+{% block content %}
+
+
+
+
+    <div class="row" id="signup-page">
+        
+        <div class="col s12 xl6 offset-xl3">
+            <form class="" method="POST" action="{% url 'sign-up' %}">
+                {% csrf_token %}
+                {{form|crispy}}
+                <input type="submit" value="Sign Up" class="btn btn-primary"/>
+            </form>
+            <div class="text-muted">
+              <a href="{% url 'sign-in' %}" class="col s12">Already have an account. Sign In!</a>
+          </div>
+        </div>
+    </div>
+
+
+{% endblock %}
