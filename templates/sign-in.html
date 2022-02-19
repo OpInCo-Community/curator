@@ -4,48 +4,45 @@
 {% block content %}
 
 <style>
-  #submitBtn {
-   
-  }
-  #submitBtn input{
+  #submitBtn {}
 
-  }
+  #submitBtn input {}
 
   .login-card {
     padding: 20px;
   }
 </style>
-
- <div class="row">
+<div class="container">
+  <div class="row">
     <div class="col s12 l6 offset-l3 ">
       <div class="login-card card">
         <div class="card-content">
           <span class="card-title">
-              <h5>
-            {% if request.GET.next != '/courier/' %}
-                Customer Log In
-            {% else %}
-                Courier Log In
-                {% endif %}
-              </h5>
+            <h5>
+              {% if request.GET.next != '/courier/' %}
+              Customer Log In
+              {% else %}
+              Courier Log In
+              {% endif %}
+            </h5>
           </span>
           <form class="" method="POST" action="{% url 'sign-in' %}">
             {% csrf_token %}
-          
+
             {{ form|crispy }}
 
             <input type="submit" value="sign-in" class="btn btn-primary" />
 
             <div class="text-muted">
-            <a href="{% url 'sign-up' %}">Not yet a member, sign-up</a>
+              <a href="{% url 'sign-up' %}">Not yet a member, sign-up</a>
             </div>
 
-        </form>
+          </form>
         </div>
-        
+
       </div>
     </div>
   </div>
-          
+</div>
 
 {% endblock %}
