@@ -7,50 +7,42 @@
 
 
 <div class="subjects-container m-5">
-<div class="container" >
+  <div class="container">
     <div class="row flex-row flex-nowrap" style="overflow-x:auto;">
-        <div class="col-3 m-4">
-       {% include "partials/subject_card.html" with subject="Computer Science" subject_url="#"%}
-        </div>
 
-         <div class="col-3 m-4">
-       {% include "partials/subject_card.html" with subject="Computer Science" subject_url="#"%}
-        </div>
-         <div class="col-3 m-4">
-       {% include "partials/subject_card.html" with subject="Computer Science" subject_url="#"%}
-        </div>
-         <div class="col-3 m-4">
-       {% include "partials/subject_card.html" with subject="Computer Science" subject_url="#"%}
-        </div>
-         <div class="col-3 m-4">
-       {% include "partials/subject_card.html" with subject="Computer Science" subject_url="#"%}
-        </div>
-         <div class="col-3 m-4">
-       {% include "partials/subject_card.html" with subject="Computer Science" subject_url="#"%}
-        </div>
-         <div class="col-3 m-4">
-       {% include "partials/subject_card.html" with subject="Computer Science" subject_url="#"%}
-        </div>
-        
+      {% for subject in subjects %}
+      {% include "partials/subject_card.html"%}
+      {% endfor %}
+
+
     </div>
-</div>
-</div>
+  </div>
 
-<div class="curation_cotainer container">
+  <div class="curation_cotainer container mt-5">
     <h5>Top Curations</h5>
     <div class="curation_inner_container">
-{% include "partials/curation_card.html" with title="TOP 450 DSA" description="This list contains top 450 DSA questions, matlab sab kar loge toh interview mein ho hi jaayega, leetcode ke 1/4th question hai bc" subject="computer Science" subject_url="https://google.com/" author="Kartikey Rawat" author_url="https://google.com/"%}
-
-{% include "partials/curation_card.html" with title="TOP 450 DSA" description="This list contains top 450 DSA questions, matlab sab kar loge toh interview mein ho hi jaayega, leetcode ke 1/4th question hai bc" subject="computer Science" subject_url="https://google.com/" author="Kartikey Rawat" author_url="https://google.com/"%}
-
-{% include "partials/curation_card.html" with title="TOP 450 DSA" description="This list contains top 450 DSA questions, matlab sab kar loge toh interview mein ho hi jaayega, leetcode ke 1/4th question hai bc" subject="computer Science" subject_url="https://google.com/" author="Kartikey Rawat" author_url="https://google.com/"%}
-
-{% include "partials/curation_card.html" with title="TOP 450 DSA" description="This list contains top 450 DSA questions, matlab sab kar loge toh interview mein ho hi jaayega, leetcode ke 1/4th question hai bc" subject="computer Science" subject_url="https://google.com/" author="Kartikey Rawat" author_url="https://google.com/"%}
-
-{% include "partials/curation_card.html" with title="TOP 450 DSA" description="This list contains top 450 DSA questions, matlab sab kar loge toh interview mein ho hi jaayega, leetcode ke 1/4th question hai bc" subject="computer Science" subject_url="https://google.com/" author="Kartikey Rawat" author_url="https://google.com/"%}
-
-{% include "partials/curation_card.html" with title="TOP 450 DSA" description="This list contains top 450 DSA questions, matlab sab kar loge toh interview mein ho hi jaayega, leetcode ke 1/4th question hai bc" subject="computer Science" subject_url="https://google.com/" author="Kartikey Rawat" author_url="https://google.com/"%}
-
+      {% for curation in curations %}
+      {% include "partials/curation_card.html"%}
+      {% endfor %}
     </div>
-</div>
-{% endblock %}
+  </div>
+
+  {% if curations.paginator.num_pages > 1 %}
+  <div class="container d-flex align-items-center justify-content-center">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+
+        {%if curations.has_previous%}
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        {% endif %}
+        {%if curations.has_next%}
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        {%endif%}
+        <li class="page-item"><a class="page-link" href="?page={{curations.paginator.num_pages}}">Last</a></li>
+
+      </ul>
+    </nav>
+  </div>
+  {% endif %}
+  {% endblock %}
