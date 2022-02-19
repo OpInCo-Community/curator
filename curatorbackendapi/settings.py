@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'crispy_forms',
     "curations",
     "userProfiles",
 ]
@@ -149,3 +150,7 @@ MEDIA_URL = "/mediafiles/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "userProfiles.CustomUser"
+LOGIN_URL = "sign-in"
+LOGIN_REDIRECT_URL = "/users/profile/"
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
