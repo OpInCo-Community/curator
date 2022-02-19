@@ -1,0 +1,56 @@
+!{% extends "base.html" %}
+
+{% block title %}Subjects{% endblock %}
+
+
+{% block content %}
+
+
+<div class="subjects-container m-5">
+<div class="container-fluid">
+    <div class="row flex-row flex-nowrap" style="overflow-x:auto;">
+        <div class="col-3 m-4">
+       {% include "partials/subject_card.html" with subject="Computer Science" subject_url="#"%}
+        </div>
+
+         <div class="col-3 m-4">
+       {% include "partials/subject_card.html" with subject="Computer Science" subject_url="#"%}
+        </div>
+         <div class="col-3 m-4">
+       {% include "partials/subject_card.html" with subject="Computer Science" subject_url="#"%}
+        </div>
+         <div class="col-3 m-4">
+       {% include "partials/subject_card.html" with subject="Computer Science" subject_url="#"%}
+        </div>
+         <div class="col-3 m-4">
+       {% include "partials/subject_card.html" with subject="Computer Science" subject_url="#"%}
+        </div>
+         <div class="col-3 m-4">
+       {% include "partials/subject_card.html" with subject="Computer Science" subject_url="#"%}
+        </div>
+         <div class="col-3 m-4">
+       {% include "partials/subject_card.html" with subject="Computer Science" subject_url="#"%}
+        </div>
+        
+    </div>
+</div>
+</div>
+
+<div class="curation_cotainer container-lg">
+    <h5>Top Curations</h5>
+    <div class="curation_inner_container">
+{% include "partials/curation_card.html" with title="TOP 450 DSA" description="This list contains top 450 DSA questions, matlab sab kar loge toh interview mein ho hi jaayega, leetcode ke 1/4th question hai bc" subject="computer Science" subject_url="https://google.com/" author="Kartikey Rawat" author_url="https://google.com/"%}
+
+{% include "partials/curation_card.html" with title="TOP 450 DSA" description="This list contains top 450 DSA questions, matlab sab kar loge toh interview mein ho hi jaayega, leetcode ke 1/4th question hai bc" subject="computer Science" subject_url="https://google.com/" author="Kartikey Rawat" author_url="https://google.com/"%}
+
+{% include "partials/curation_card.html" with title="TOP 450 DSA" description="This list contains top 450 DSA questions, matlab sab kar loge toh interview mein ho hi jaayega, leetcode ke 1/4th question hai bc" subject="computer Science" subject_url="https://google.com/" author="Kartikey Rawat" author_url="https://google.com/"%}
+
+{% include "partials/curation_card.html" with title="TOP 450 DSA" description="This list contains top 450 DSA questions, matlab sab kar loge toh interview mein ho hi jaayega, leetcode ke 1/4th question hai bc" subject="computer Science" subject_url="https://google.com/" author="Kartikey Rawat" author_url="https://google.com/"%}
+
+{% include "partials/curation_card.html" with title="TOP 450 DSA" description="This list contains top 450 DSA questions, matlab sab kar loge toh interview mein ho hi jaayega, leetcode ke 1/4th question hai bc" subject="computer Science" subject_url="https://google.com/" author="Kartikey Rawat" author_url="https://google.com/"%}
+
+{% include "partials/curation_card.html" with title="TOP 450 DSA" description="This list contains top 450 DSA questions, matlab sab kar loge toh interview mein ho hi jaayega, leetcode ke 1/4th question hai bc" subject="computer Science" subject_url="https://google.com/" author="Kartikey Rawat" author_url="https://google.com/"%}
+
+    </div>
+</div>
+{% endblock %}

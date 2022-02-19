@@ -12,6 +12,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("users/", include("userProfiles.urls")),
     path("", views.HomePageView.as_view(), name="home"),
+    path("subjects/", views.SubjectPageView.as_view(), name="home"),
 ]
 if settings.DEBUG:
     urlpatterns += static(
