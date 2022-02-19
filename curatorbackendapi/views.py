@@ -1,5 +1,8 @@
 from django.views.generic.base import TemplateView
-
+from django.contrib.auth import login
+from django.shortcuts import redirect, render
+from .forms import CustomUserCreationForm
+from django.contrib import messages
 
 class HomePageView(TemplateView):
 
@@ -12,3 +15,23 @@ class HomePageView(TemplateView):
     #     context["notices"] = Notice.objects.all()[:5]
     #     context["events"] = Event.objects.all()[:5]
     #     return context
+
+def signUp(request):
+    
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data.get("email").lower()
+            user = form.save(commit=False)
+            user.username = email
+            user.save()
+            login(request,user)
+            messages.success(request, f"User created and logged in successfully" )
+            return redirect("/")
+        
+        else:
+            return render(request, "sign-up.html", {"form": form})
+    
+    form = CustomUserCreationForm()
+    
+    return render(request, "sign-up.html", {"form": form})
