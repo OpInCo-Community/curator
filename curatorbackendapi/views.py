@@ -6,7 +6,7 @@ from django.contrib import messages
 
 class HomePageView(TemplateView):
 
-    template_name = "index.html"
+    template_name = "pages/home.html"
 
     # def get_context_data(self, **kwargs):
     #     # Call the base implementation first to get a context
