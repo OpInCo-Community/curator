@@ -19,8 +19,9 @@ urlpatterns = [
     ),
     path("sign-out/", auth_views.LogoutView.as_view(next_page="/"), name="sign-out"),
     path("sign-up/", views.signUp, name="sign-up"),
+    path("subjects/", views.SubjectListView.as_view(), name="subjects"),
+    path("subject/<str:sub>", views.SubjectPageView.as_view(), name="subject"),
     path("", views.HomePageView.as_view(), name="home"),
-    path("subject/<str:sub>", views.SubjectPageView.as_view(), name="home"),
 ]
 if settings.DEBUG:
     urlpatterns += static(

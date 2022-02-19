@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Subjects{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <h1 class="mt-5">Subjects</h1>
+    <ol class=" m-5">
+        {% for subject in object_list %}
+        <a href="http://{{request.get_host}}/subject/{{subject}}">
+            <h3 class="m-5">
+                <li>
+                    {{subject}}
+                </li>
+            </h3>
+        </a>
+
+        {% endfor %}
+    </ol>
+    {% endblock %}
+</div>
