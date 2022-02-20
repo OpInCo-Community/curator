@@ -94,5 +94,4 @@ def signUp(request):
 
 def add_curation_view(request):
 
-    
     return render(request, "pages/curation_add.html")
