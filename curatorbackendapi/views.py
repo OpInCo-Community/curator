@@ -1,8 +1,6 @@
-from asyncio import constants
 from django.views.generic import View, ListView
 from django.contrib.auth import login
 from django.shortcuts import redirect, render
-from curations.filters import CurationFilter
 
 from curations.models import Curation, Subject
 from .forms import CustomUserCreationForm
@@ -47,7 +45,6 @@ class SubjectPageView(View):
         title = kwargs["sub"]
         subject = Subject.objects.filter(title=title)[0]
         curation_count = subject.curations.all().count()
-
         # filtering Data
         search_term = request.GET.get("search")
         if search_term:
@@ -59,9 +56,6 @@ class SubjectPageView(View):
             curations_whole = Curation.objects.filter(subject=subject).order_by(
                 "-upvotes"
             )
-        filter_term = request.GET.get("filter")
-        if filter_term:
-            curations_whole = curations_whole.order_by(filter_term)
 
         # pagination stuff
         p = Paginator(curations_whole, 15)
@@ -98,5 +92,7 @@ def signUp(request):
     return render(request, "sign-up.html", {"form": form})
 
 
-class AddCurationView(View):
-    template_name = "pages/curation_add.html"
+def add_curation_view(request):
+
+    
+    return render(request, "pages/curation_add.html")
