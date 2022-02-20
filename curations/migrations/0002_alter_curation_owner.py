@@ -9,13 +9,17 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('curations', '0001_initial'),
+        ("curations", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='curation',
-            name='owner',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='curations', to=settings.AUTH_USER_MODEL),
+            model_name="curation",
+            name="owner",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.CASCADE,
+                related_name="curations",
+                to=settings.AUTH_USER_MODEL,
+            ),
         ),
     ]
