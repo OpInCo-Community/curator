@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-
 {% block title %}{{subject}}{% endblock %}
 
 
@@ -17,9 +16,7 @@
     </div>
     <div class="container-md mt-5">
         <div class="row">
-            <div class="col-l-3 m-2">{%include "partials/search_widget.html"%}</div>
-            {{myFilter}}
-            <div class="col-l-3 m-2">{%include "partials/filter_widget.html"%}</div>
+            {%include "partials/search_filter_widget.html"%}
         </div>
     </div>
 </div>

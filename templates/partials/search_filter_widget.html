@@ -1,0 +1,22 @@
+<form id='searchForm' method="GET" action="{{ request.get_full_path }}" class="row">
+    <div class="col-l-3 m-2">
+        <div class="d-flex" style="max-width:300px">
+            <input type="search" name="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+                aria-describedby="search-addon" />
+            <button type="submit" class="input-group-text border-1" id="search-addon"
+                style="width:40px; cursor:pointer;">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+    <div class="col-l-3 m-2 d-flex align-items-center justify-content-center">
+        <label style="font-weight:500;font-size:1.2rem" for="filter"> Filter: &nbsp;&nbsp;</label>
+        <select style="width:15rem;height:2rem" name="filter" id="filter" class="form-select form-select-lg mb-3"
+            aria-label=".form-select-lg example">
+            <option value="">Apply</option>
+            <option value="upvotes">Upvotes</option>
+            <option value="-created_at">Newest First</option>
+            <option value="created_at">Oldest First</option>
+        </select>
+    </div>
+</form>

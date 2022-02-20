@@ -1,6 +1,8 @@
+from datetime import date
+from sqlite3 import Date
+from statistics import mode
 from django.db import models
 from django.contrib.auth import get_user, get_user_model
-
 
 # Create your models here.
 class Curation(models.Model):
@@ -13,6 +15,7 @@ class Curation(models.Model):
     subject = models.ForeignKey(
         "Subject", related_name="curations", on_delete=models.CASCADE
     )
+    created_at = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
         return self.title

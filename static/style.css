@@ -1,8 +1,12 @@
-*{
+* {
 	box-sizing: border-box;
 	font-family: 'Poppins', sans-serif;
 }
-a, a:hover, a:focus, a:active {
+
+a,
+a:hover,
+a:focus,
+a:active {
 	text-decoration: none;
 	color: inherit;
 }
@@ -27,18 +31,41 @@ body {
 	min-height: 50px;
 }
 
-.bottom-nav-item{ 
+.bottom-nav-item {
 	color: white;
 }
 
-.curation-container{
+.curation-container {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	box-sizing: border-box;
 }
-.curation-container h3{
+
+.curation-container h3 {
 	font-weight: 600;
 }
-.left-section,.right-section{
-	margin:20px;
+
+.left-section,
+.right-section {
+	margin: 20px;
+	box-sizing: border-box;
+}
+
+.left-section {
+	width: 10%;
+}
+
+.right-section {
+	width: 80%;
+}
+
+.card-text {
+	height: 80%;
+	overflow: hidden;
+	word-wrap: break-word;
+}
+
+.card-body {
+	padding-right: 20px !important;
 }
