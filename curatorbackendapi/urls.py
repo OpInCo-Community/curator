@@ -21,6 +21,7 @@ urlpatterns = [
     path("sign-up/", views.signUp, name="sign-up"),
     path("subjects/", views.SubjectListView.as_view(), name="subjects"),
     path("subject/<str:sub>", views.SubjectPageView.as_view(), name="subject"),
+    path("curations/new", views.AddCurationView.as_view(), name="curation_add"),
     path("", views.HomePageView.as_view(), name="home"),
 ]
 if settings.DEBUG:

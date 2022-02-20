@@ -96,3 +96,7 @@ def signUp(request):
     form = CustomUserCreationForm()
 
     return render(request, "sign-up.html", {"form": form})
+
+
+class AddCurationView(View):
+    template_name = "pages/curation_add.html"
