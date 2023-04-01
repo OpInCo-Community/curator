@@ -4,6 +4,7 @@ from statistics import mode
 from django.db import models
 from django.contrib.auth import get_user, get_user_model
 
+
 # Create your models here.
 class Curation(models.Model):
     title = models.CharField(max_length=64)
