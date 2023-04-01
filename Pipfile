@@ -6,8 +6,6 @@ name = "pypi"
 [packages]
 Pillow = "*"
 django-crispy-forms = "*"
-djangorestframework-filters = "*"
-django-filter = "==21.1"
 
 [dev-packages]
 

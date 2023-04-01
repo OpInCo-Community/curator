@@ -1,3 +1,6 @@
+from datetime import date
+from sqlite3 import Date
+from statistics import mode
 from django.db import models
 from django.contrib.auth import get_user, get_user_model
 
@@ -7,10 +10,13 @@ class Curation(models.Model):
     title = models.CharField(max_length=64)
     description = models.TextField()
     upvotes = models.IntegerField(default=0)
-    owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    owner = models.ForeignKey(
+        get_user_model(), on_delete=models.CASCADE, related_name="curations"
+    )
     subject = models.ForeignKey(
         "Subject", related_name="curations", on_delete=models.CASCADE
     )
+    created_at = models.DateTimeField(auto_now_add=True, blank=True)
 
     def __str__(self):
         return self.title

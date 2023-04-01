@@ -11,7 +11,7 @@
 
       <div class="right-section">
         <h3 class="card-title">{{curation.title}}</h3>
-        <p class="card-text">{{curation.description}}</p>
+        <p class="text">{{curation.description |truncatechars:200 }}</p>
         <div class='mt-2 font-weight-bold'>
           <a href="subject/{{subject}}">
             {{curation.subject}}

@@ -1,3 +1,4 @@
+from asyncio import constants
 from django.views.generic import View, ListView
 from django.contrib.auth import login
 from django.shortcuts import redirect, render
@@ -11,7 +12,6 @@ from django.core.paginator import Paginator
 
 
 class HomePageView(View):
-
     template_name = "pages/home.html"
 
     def get(self, request):
@@ -37,15 +37,14 @@ class SubjectListView(ListView):
 
 
 class SubjectPageView(View):
-
     template_name = "pages/subjects.html"
 
     def get(self, request, *args, **kwargs):
-
         # defining vars
         title = kwargs["sub"]
         subject = Subject.objects.filter(title=title)[0]
         curation_count = subject.curations.all().count()
+
         # filtering Data
         search_term = request.GET.get("search")
         if search_term:
@@ -57,6 +56,9 @@ class SubjectPageView(View):
             curations_whole = Curation.objects.filter(subject=subject).order_by(
                 "-upvotes"
             )
+        filter_term = request.GET.get("filter")
+        if filter_term:
+            curations_whole = curations_whole.order_by(filter_term)
 
         # pagination stuff
         p = Paginator(curations_whole, 15)
@@ -73,7 +75,6 @@ class SubjectPageView(View):
 
 
 def signUp(request):
-
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():

@@ -42,7 +42,12 @@ class CustomUser(AbstractUser):
     username = None
     email = models.EmailField(_("email address"), unique=True)
     bio = models.TextField(blank=True, null=True)
-    profile_pic = models.ImageField(upload_to="profile_pic/", null=True, blank=True)
+    profile_pic = models.ImageField(
+        upload_to="profile_pic/",
+        default="/static/images/default_profile.jpg",
+        null=True,
+        blank=True,
+    )
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
@@ -51,3 +56,13 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.email
+
+    def get_profile_pic(self):
+        # variable PATH_TO_DEFAULT_STATIC_IMAGE depends on the enviroment
+        # on development, it would be something like "localhost:8000/static/default_avatar.png"
+        # on production, it would be something like "https://BUCKET_NAME.s3.amazonaws.com/static/default_avatar.png"
+        return (
+            self.profile_pic
+            if self.profile_pic
+            else "/static/images/default_profile.jpg"
+        )

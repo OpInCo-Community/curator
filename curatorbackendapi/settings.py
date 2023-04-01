@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     "crispy_forms",
     "curations",
     "userProfiles",
-    "django_filters",
 ]
 
 MIDDLEWARE = [
@@ -138,7 +137,7 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
-    "/var/www/static/",
+    # "/var/www/static/",
 ]
 # STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
