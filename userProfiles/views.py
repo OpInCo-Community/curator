@@ -20,7 +20,6 @@ class UserProfile(LoginRequiredMixin, View):
         return render(request, "userProfiles/profile.html", context)
 
     def post(self, request, *args, **kwargs):
-
         user_form = CustomUserUpdateForm(request.POST, instance=request.user)
 
         if user_form.is_valid():

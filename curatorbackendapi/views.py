@@ -10,7 +10,6 @@ from django.core.paginator import Paginator
 
 
 class HomePageView(View):
-
     template_name = "pages/home.html"
 
     def get(self, request):
@@ -36,11 +35,9 @@ class SubjectListView(ListView):
 
 
 class SubjectPageView(View):
-
     template_name = "pages/subjects.html"
 
     def get(self, request, *args, **kwargs):
-
         # defining vars
         title = kwargs["sub"]
         subject = Subject.objects.filter(title=title)[0]
@@ -72,7 +69,6 @@ class SubjectPageView(View):
 
 
 def signUp(request):
-
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
@@ -93,5 +89,4 @@ def signUp(request):
 
 
 def add_curation_view(request):
-
     return render(request, "pages/curation_add.html")

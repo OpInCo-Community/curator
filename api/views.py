@@ -46,7 +46,6 @@ class SubjectDetail(mixins.RetrieveModelMixin, generics.GenericAPIView):
 class CurationList(
     mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView
 ):
-
     queryset = models.Curation.objects.all()
     serializer_class = serializers.CurationSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsCurationOwner]
@@ -78,7 +77,6 @@ class CurationDetail(
     mixins.UpdateModelMixin,
     generics.GenericAPIView,
 ):
-
     queryset = models.Curation.objects.all()
     serializer_class = serializers.CurationSerializer
 
@@ -95,7 +93,6 @@ class CurationDetail(
 
 
 class TopicCreate(mixins.CreateModelMixin, generics.GenericAPIView):
-
     queryset = models.Topic.objects.all()
     serializer_class = serializers.TopicSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsTopicOwner]
@@ -119,7 +116,6 @@ class TopicDetail(
 
 
 class LinkCreate(mixins.CreateModelMixin, generics.GenericAPIView):
-
     queryset = models.Link.objects.all()
     serializer_class = serializers.LinkSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsLinkOwner]
@@ -143,7 +139,6 @@ class LinkDetail(
 
 
 class SubTopicCreate(mixins.CreateModelMixin, generics.GenericAPIView):
-
     queryset = models.SubTopic.objects.all()
     serializer_class = serializers.SubTopicSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsSubTopicOwner]
@@ -167,7 +162,6 @@ class SubTopicDetail(
 
 
 class SubTopicLinkCreate(mixins.CreateModelMixin, generics.GenericAPIView):
-
     queryset = models.SubTopicLink.objects.all()
     serializer_class = serializers.SubTopicLinkSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly, IsSubTopicLinkOwner]
